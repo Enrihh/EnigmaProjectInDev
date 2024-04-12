@@ -5,30 +5,32 @@ import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.enigmaprojectin_dev.databinding.PlayermuzickBinding
 
 class MainActivity : AppCompatActivity() {
 
     private var clickCount: Int = 0
-    private lateinit var textView: TextView
+    private lateinit var binding: PlayermuzickBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.playermuzick)
+        binding = PlayermuzickBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+        binding.button2.text = "Кнопка была нажата $clickCount раз"
 
-        textView = findViewById(R.id.my_text)
-        textView.text = "Кнопка была нажата $clickCount раз"
-
-        findViewById<Button>(R.id.increment_button).setOnClickListener {
+        binding.button2.setOnClickListener {
             clickCount++
             updateClickCount()
         }
 
-        textView.setOnClickListener {
+        binding.button3.setOnClickListener {
             Log.e("MY_TAG", "My message")
         }
+        binding.button4.setOnClickListener{}
     }
 
     private fun updateClickCount() {
-        textView.text = "Кнопка была нажата $clickCount раз"
+        binding.button2.text = "Кнопка была нажата $clickCount раз"
     }
 }
