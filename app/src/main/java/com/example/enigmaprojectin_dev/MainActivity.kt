@@ -26,8 +26,16 @@ class MainActivity : AppCompatActivity() {
 
         binding.button3.setOnClickListener {
             Log.e("MY_TAG", "My message")
+            updateClickCount()
         }
-        binding.button4.setOnClickListener{}
+        binding.button4.setOnClickListener{
+            clickCount++
+            updateClickCount()
+        }
+        binding.button5.setOnClickListener{
+            Log.e("MY_TAG", "My message")
+            updateClickCount()
+        }
     }
 
     private fun updateClickCount() {
