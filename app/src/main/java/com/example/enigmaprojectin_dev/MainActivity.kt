@@ -1,4 +1,4 @@
-package com.example.simplecounter
+package com.example.enigmaprojectin_dev
 
 import android.os.Bundle
 import android.util.Log
