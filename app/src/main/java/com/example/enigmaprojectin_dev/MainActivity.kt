@@ -5,6 +5,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.enigmaprojectin_dev.databinding.PlayermuzickBinding
 
 class MainActivity : AppCompatActivity() {
@@ -13,7 +14,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: PlayermuzickBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         binding = PlayermuzickBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
@@ -36,6 +36,20 @@ class MainActivity : AppCompatActivity() {
             Log.e("MY_TAG", "My message")
             updateClickCount()
         }
+        super.onCreate(savedInstanceState)
+
+        binding = PlayermuzickBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val data: List<String> = listOf(
+            "String 1",
+            "String 2",
+            "String 3"
+        )
+        binding.myList.layoutManager = LinearLayoutManager(this@MainActivity)
+        val myAdapter = MyLIstofMuzick()
+        binding.myList.adapter = myAdapter
+        myAdapter.setList(data)
     }
 
     private fun updateClickCount() {
