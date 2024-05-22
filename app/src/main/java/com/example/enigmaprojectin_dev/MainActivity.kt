@@ -2,8 +2,6 @@ package com.example.enigmaprojectin_dev
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.enigmaprojectin_dev.databinding.PlayermuzickBinding
@@ -14,9 +12,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: PlayermuzickBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         binding = PlayermuzickBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(binding.root)
+
         binding.button2.text = "Кнопка была нажата $clickCount раз"
 
         binding.button2.setOnClickListener {
@@ -28,26 +27,25 @@ class MainActivity : AppCompatActivity() {
             Log.e("MY_TAG", "My message")
             updateClickCount()
         }
-        binding.button4.setOnClickListener{
+
+        binding.button4.setOnClickListener {
             clickCount++
             updateClickCount()
         }
-        binding.button5.setOnClickListener{
+
+        binding.button5.setOnClickListener {
             Log.e("MY_TAG", "My message")
             updateClickCount()
         }
-        super.onCreate(savedInstanceState)
-
-        binding = PlayermuzickBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
         val data: List<String> = listOf(
             "String 1",
             "String 2",
             "String 3"
         )
-        binding.myList.layoutManager = LinearLayoutManager(this@MainActivity)
-        val myAdapter = MyLIstofMuzick()
+
+        binding.myList.layoutManager = LinearLayoutManager(this)
+        val myAdapter = MyListAdapter()
         binding.myList.adapter = myAdapter
         myAdapter.setList(data)
     }
