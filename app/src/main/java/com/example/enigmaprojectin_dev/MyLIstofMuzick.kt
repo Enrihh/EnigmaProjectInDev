@@ -13,7 +13,9 @@ class MuzickAdapter: RecyclerView.Adapter<MuzickAdapter.MyViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val binding = ItemListBinding.inflate(LayoutInflater.from(parent.context))
+
+        val binding = ItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+
         return MyViewHolder(binding)
 
     }
