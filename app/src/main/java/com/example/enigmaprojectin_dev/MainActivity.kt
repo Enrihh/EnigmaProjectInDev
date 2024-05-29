@@ -20,12 +20,12 @@ class MainActivity : AppCompatActivity() {
         binding = PlayermuzickBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.button2.text = "Кнопка была нажата $clickCount раз"
-
-        binding.button2.setOnClickListener {
-            clickCount++
-            updateClickCount()
-        }
+//        binding.button2.text = "Кнопка была нажата $clickCount раз"
+//
+//        binding.button2.setOnClickListener {
+//            clickCount++
+//            updateClickCount()
+//        }
 
 //        binding.button3.setOnClickListener {
 //            Log.e("MY_TAG", "My message")
@@ -43,9 +43,10 @@ class MainActivity : AppCompatActivity() {
 //        }
 
         val data: List<String> = listOf(
-            "String 1",
-            "String 2",
-            "String 3"
+            "Musick 1",
+            "Musick 2",
+            "Musick 3",
+            "Musick 4"
         )
 
         binding.myList.layoutManager = LinearLayoutManager(this)
@@ -58,9 +59,9 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    @SuppressLint("SetTextI18n")
-    private fun updateClickCount() {
-        binding.button2.text = "Кнопка была нажата $clickCount раз"
-    }
+//    @SuppressLint("SetTextI18n")
+//    private fun updateClickCount() {
+//        binding.button2.text = "Кнопка была нажата $clickCount раз"
+//    }
 
 }
