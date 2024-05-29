@@ -10,6 +10,7 @@ class MyListAdapter : RecyclerView.Adapter<MyListAdapter.MyViewHolder>() {
 
     private var dataList: List<String> = listOf()
 
+
     @SuppressLint("NotifyDataSetChanged")
     fun setList(data: List<String>) {
         this.dataList = data
