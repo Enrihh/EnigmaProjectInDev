@@ -1,9 +1,11 @@
 package com.example.enigmaprojectin_dev
 
+import MainFragment
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.commit
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.enigmaprojectin_dev.databinding.PlayermuzickBinding
 import com.example.enigmaprojectin_dev.network.NetworkClient
@@ -56,7 +58,12 @@ class MainActivity : AppCompatActivity() {
         val networkClient = NetworkClient()
         networkClient.initClient()
         networkClient.getImage()
-    }
+        if (savedInstanceState == null) {
+            supportFragmentManager.commit {
+                setReorderingAllowed(true)
+                add(R.id.fragment_container, MainFragment::class.java, null)
+            }
+        }
 
 
 //    @SuppressLint("SetTextI18n")
@@ -64,4 +71,5 @@ class MainActivity : AppCompatActivity() {
 //        binding.button2.text = "Кнопка была нажата $clickCount раз"
 //    }
 
+    }
 }
