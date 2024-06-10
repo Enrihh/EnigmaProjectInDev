@@ -12,44 +12,46 @@ import com.example.enigmaprojectin_dev.network.NetworkClient
 
 class MainFragment : Fragment() {
 
-    private var _binding: FragmentMainBinding? = null
-    private val binding get() = _binding!!
+    class MainFragment(
+        private val listener: Navigation
+    ) : Fragment() {
+        private lateinit var binding: FragmentMainBinding
 
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentMainBinding.inflate(inflater, container, false)
-        return binding.root
+        override fun onCreateView(
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
+        ): View? {
+            var _binding = FragmentMainBinding.inflate(inflater, container, false)
+            return binding.root
+        }
+
+
+        override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+            super.onViewCreated(view, savedInstanceState)
+            binding.fragmentText.text = "Fragment text updated"
+            val data: List<String> = listOf(
+                "Musick 1",
+                "Musick 2",
+                "Musick 3",
+                "Musick 4"
+            )
+
+            binding.myList.layoutManager = LinearLayoutManager(this.requireContext())
+            val myAdapter = MuzickAdapter()
+            binding.myList.adapter = myAdapter
+            myAdapter.setList(data)
+            val networkClient = NetworkClient()
+            networkClient.initClient()
+            networkClient.getImage()
+
+        }
+
+
+        override fun onDestroyView() {
+            super.onDestroyView()
+            var _binding = null
+        }
+
     }
-
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding.fragmentText.text = "Fragment text updated"
-        val data: List<String> = listOf(
-            "Musick 1",
-            "Musick 2",
-            "Musick 3",
-            "Musick 4"
-        )
-
-        binding.myList.layoutManager = LinearLayoutManager(this.requireContext())
-        val myAdapter = MuzickAdapter()
-        binding.myList.adapter = myAdapter
-        myAdapter.setList(data)
-        val networkClient = NetworkClient()
-        networkClient.initClient()
-        networkClient.getImage()
-
-    }
-
-
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
 }

@@ -22,54 +22,19 @@ class MainActivity : AppCompatActivity() {
         binding = PlayermuzickBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        binding.button2.text = "Кнопка была нажата $clickCount раз"
-//
-//        binding.button2.setOnClickListener {
-//            clickCount++
-//            updateClickCount()
-//        }
-
-//        binding.button3.setOnClickListener {
-//            Log.e("MY_TAG", "My message")
-//            updateClickCount()
-//        }
-//
-//        binding.button4.setOnClickListener {
-//            clickCount++
-//            updateClickCount()
-//        }
-//
-//        binding.button5.setOnClickListener {
-//            Log.e("MY_TAG", "My message")
-//            updateClickCount()
-//        }
-
-        val data: List<String> = listOf(
-            "Musick 1",
-            "Musick 2",
-            "Musick 3",
-            "Musick 4"
-        )
-
-        binding.myList.layoutManager = LinearLayoutManager(this)
-        val myAdapter = MuzickAdapter()
-        binding.myList.adapter = myAdapter
-        myAdapter.setList(data)
-        val networkClient = NetworkClient()
-        networkClient.initClient()
-        networkClient.getImage()
-        if (savedInstanceState == null) {
-            supportFragmentManager.commit {
-                setReorderingAllowed(true)
-                add(R.id.root_container, MainFragment::class.java, null)
-            }
-        }
 
 
-//    @SuppressLint("SetTextI18n")
-//    private fun updateClickCount() {
-//        binding.button2.text = "Кнопка была нажата $clickCount раз"
-//    }
+
+           fun openMainFragment() {
+               supportFragmentManager.commit {
+                   setReorderingAllowed(true)
+                   add(R.id.root_container, MainFragment::class.java, null)
+               }
+           }
+
+
+
+
 
     }
 }
