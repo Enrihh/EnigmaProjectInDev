@@ -13,11 +13,7 @@
         android:layout_gravity="center"
         android:orientation="vertical"
         />
-    <androidx.fragment.app.FragmentContainerView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/fragment_container_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+
 
 
 <!--    <Button-->
@@ -47,8 +43,8 @@
 <!--        android:layout_height="57dp"-->
 <!--        android:text="Musick4"-->
 <!--        android:layout_marginBottom="30dp"/>-->
-    <FragmentContainerView
-        android:id="@+id/fragment_container"
+    <LinearLayout
+        android:id="@+id/root_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:name="com.example.enigmaprojectin_dev.MainFragment" />

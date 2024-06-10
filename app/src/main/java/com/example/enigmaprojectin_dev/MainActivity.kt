@@ -1,6 +1,6 @@
 package com.example.enigmaprojectin_dev
 
-import MainFragment
+
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             supportFragmentManager.commit {
                 setReorderingAllowed(true)
-                add(R.id.fragment_container, MainFragment::class.java, null)
+                add(R.id.root_container, MainFragment::class.java, null)
             }
         }
 

@@ -4,12 +4,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
-    <androidx.fragment.app.FragmentContainerView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/fragment_container_view"
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/myList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:name="com.example.enigmaprojectin_dev.MainFragment" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        />
 
 
     <TextView
@@ -18,8 +20,8 @@
         android:layout_height="wrap_content"
         android:text="This is a fragment"
         android:textSize="18sp" />
-    <FragmentContainerView
-        android:id="@+id/fragment_container"
+    <LinearLayout
+        android:id="@+id/root_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:name="com.example.enigmaprojectin_dev.MainFragment" />
