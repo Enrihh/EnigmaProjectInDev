@@ -44,14 +44,15 @@ class MainFragment : Fragment() {
             val networkClient = NetworkClient()
             networkClient.initClient()
             networkClient.getImage()
+            super.onViewCreated(view, savedInstanceState)
+            binding.fragmentText.setOnClickListener {
+                listener.navigateToFragmentNext()
+            }
 
         }
 
 
-        override fun onDestroyView() {
-            super.onDestroyView()
-            var _binding = null
-        }
+
 
     }
 }
