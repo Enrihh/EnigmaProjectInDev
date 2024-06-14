@@ -31,7 +31,7 @@ class NextFragment: Fragment() {
         val playButton: Button = view.findViewById(R.id.playradio)
         playButton.setOnClickListener {
             playRadio()
-            initializePlayer("https//vip1.fhbf9.com/20210705/eoQxrzxS/index.m3u8")
+            initializePlayer("https://audio.soundsofatc.com/atcc")
         }
     }
 
@@ -57,4 +57,5 @@ class NextFragment: Fragment() {
             mediaPlayer.start()
         }
     }
+
 }
