@@ -1,4 +1,4 @@
-package com.example.fragmentsapp
+package com.example.enigmaprojectin_dev
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.enigmaprojectin_dev.databinding.FragmentNextBinding
-import com.example.fragmentsapp.databinding.FragmentNextBinding
 
 class NextFragment: Fragment() {
     private lateinit var binding: FragmentNextBinding
