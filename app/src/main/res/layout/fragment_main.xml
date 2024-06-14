@@ -21,6 +21,7 @@
         android:text="This is a fragment"
         android:textSize="18sp" />
     <LinearLayout
+        android:orientation="horizontal"
         android:id="@+id/root_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
