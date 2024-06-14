@@ -17,12 +17,25 @@
         android:gravity="center_horizontal" />
 
     <Button
-        android:id="@+id/playradio1"
+        android:id="@+id/playradio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="play"
-        android:orientation="horizontal"
         android:gravity="center"
-        tools:ignore="MissingConstraints" />
+        android:orientation="horizontal"
+        android:text="play"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="198dp" />
+
+    <Button
+        android:id="@+id/pauseradio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:text="pause"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="127dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

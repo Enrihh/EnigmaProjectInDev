@@ -33,15 +33,13 @@ class MainFragment(
         )
 
         binding.myList.layoutManager = LinearLayoutManager(this.requireContext())
-        val myAdapter = MuzickAdapter()
+        val myAdapter = MuzickAdapter(listener)
         binding.myList.adapter = myAdapter
         myAdapter.setList(data)
         val networkClient = NetworkClient()
         networkClient.initClient()
         networkClient.getImage()
-        binding.fragmentText.setOnClickListener {
-            listener.navigateToFragmentNext()
-        }
+
     }
 }
 

@@ -6,7 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.enigmaprojectin_dev.databinding.ItemListBinding
 
-class MuzickAdapter: RecyclerView.Adapter<MuzickAdapter.MyViewHolder>() {
+class MuzickAdapter(private val listener: Navigation): RecyclerView.Adapter<MuzickAdapter.MyViewHolder>() {
+
     private var myData: List<String> = listOf()
     fun setList(list: List<String>){
         myData = list
@@ -16,7 +17,7 @@ class MuzickAdapter: RecyclerView.Adapter<MuzickAdapter.MyViewHolder>() {
 
         val binding = ItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
-        return MyViewHolder(binding)
+        return MyViewHolder(binding, listener)
 
     }
 
@@ -31,10 +32,11 @@ class MuzickAdapter: RecyclerView.Adapter<MuzickAdapter.MyViewHolder>() {
 
     }
     class MyViewHolder(
-        private val binding: ItemListBinding
+        private val binding: ItemListBinding, private val listener: Navigation
     ): RecyclerView.ViewHolder(binding.root) {
         fun bind(data: String){
             binding.button.text = data
+            binding.button.setOnClickListener {listener.navigateToFragmentNext()}
 
         }
 

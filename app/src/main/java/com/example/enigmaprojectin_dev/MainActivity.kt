@@ -19,14 +19,14 @@ class MainActivity : AppCompatActivity(), Navigation {
     private fun openMainFragment() {
         supportFragmentManager.commit {
             setReorderingAllowed(true)
-            add(R.id.root_container, MainFragment::class.java, null)
+            add(R.id.root_container, MainFragment(this@MainActivity), null)
         }
     }
 
     override fun navigateToFragmentNext() {
         supportFragmentManager.commit {
             setReorderingAllowed(true)
-            replace(R.id.root_container, NextFragment::class.java, null)
+            replace(R.id.root_container, NextFragment(), null)
             addToBackStack(null)
         }
     }
