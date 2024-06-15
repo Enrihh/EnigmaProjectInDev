@@ -7,12 +7,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.example.enigmaprojectin_dev.databinding.FragmentNextBinding
 
 class NextFragment: Fragment() {
-
     private lateinit var binding: FragmentNextBinding
     private val mediaPlayer = MediaPlayer()
 
@@ -27,11 +25,9 @@ class NextFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val playButton: Button = view.findViewById(R.id.playradio)
-        playButton.setOnClickListener {
+        initializePlayer("http://ep256.hostingradio.ru:8052/europaplus256.mp3")
+        binding.playradio.setOnClickListener {
             playRadio()
-            initializePlayer("https://audio.soundsofatc.com/atcc")
         }
     }
 
@@ -45,7 +41,6 @@ class NextFragment: Fragment() {
                     .build()
             )
             setOnPreparedListener { player ->
-                player.start()
             }
             setDataSource(radioUrl)
             prepareAsync()
@@ -57,5 +52,9 @@ class NextFragment: Fragment() {
             mediaPlayer.start()
         }
     }
-
+    override fun onDestroy() {
+        super.onDestroy()
+        mediaPlayer.release()
+    }
 }
+
