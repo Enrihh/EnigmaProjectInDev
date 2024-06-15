@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import com.example.enigmaprojectin_dev.databinding.FragmentNextBinding
 
 class NextFragment: Fragment() {
+
     private lateinit var binding: FragmentNextBinding
     private val mediaPlayer = MediaPlayer()
 
@@ -25,10 +26,13 @@ class NextFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initializePlayer("http://ep256.hostingradio.ru:8052/europaplus256.mp3")
         binding.playradio.setOnClickListener {
             playRadio()
+            initializePlayer("http://stream4.nadaje.com:15476/radiobialystok")
         }
+        
+
+
     }
 
     private fun initializePlayer(radioUrl: String) {
@@ -41,6 +45,7 @@ class NextFragment: Fragment() {
                     .build()
             )
             setOnPreparedListener { player ->
+                player.start()
             }
             setDataSource(radioUrl)
             prepareAsync()
@@ -56,5 +61,6 @@ class NextFragment: Fragment() {
         super.onDestroy()
         mediaPlayer.release()
     }
+
 }
 
